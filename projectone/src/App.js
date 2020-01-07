@@ -37,18 +37,20 @@ class todoList extends Component {
   }
 
   removeTodoHandler = (index)=> {
-    // console.log(index)
-    // console.log('todos state before splice***', this.state.todos)
-
-    // Splice out element in Todos by index
-    this.setState({
-      todos: this.state.todos.splice(index, 1)
-    })
-
-    // Set state to updated todos state 
+    // Using Splice
+    // this.setState({
+    //   todos: this.state.todos.splice(index, 1)
+    // })
+        // Set state to updated todos state 
     // (Otherwise splice returns deleted element in new array that is rendered)
-    this.setState({ todos: this.state.todos })
+    // this.setState({ todos: this.state.todos })
     // console.log('todos state after splice***', this.state.todos)
+
+
+    // Using Filter... I think this one is better. Non-destructive and apparently faster?
+    this.setState({
+      todos: this.state.todos.filter((todo, i) => i !== index)
+    })
   }
 
   inputFieldText = (e) => {
