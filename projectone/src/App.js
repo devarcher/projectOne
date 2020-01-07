@@ -3,7 +3,7 @@ import './App.css';
 import { render } from '@testing-library/react';
 
 
-class Clickey extends Component {
+class todoList extends Component {
   state = {
   text: '',
   todos: [],
@@ -15,13 +15,20 @@ class Clickey extends Component {
     console.log(this.state.isClicked)
   }
 
+  textInput = (e) => {
+    this.setState( {text: e.target.value })
+  }
+
   render() {
     return (
       <div>
+        <h1>{this.state.text}</h1>
         <button onClick={this.wasClicked}>Click Me</button>
+        <input value={this.state.text} onChange={this.textInput}></input>
+
       </div>
     )
   }
 };
 
-export default Clickey;
+export default todoList;
