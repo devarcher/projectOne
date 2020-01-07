@@ -36,8 +36,25 @@ class todoList extends Component {
     this.componentDidMount();
   }
 
+  removeTask = (index)=> {
+    // console.log(Object.prototype.toString.call(e.target.value))
+    console.log(index)
+
+    // const eValue = parseInt(e.target.value)
+    // console.log('eValue***', eValue)
+
+    console.log('todos state before splice***', this.state.todos)
+
+    this.setState({
+      todos: this.state.todos.splice(index, 1)
+    })
+
+    console.log('todos state after splice***', this.state.todos)
+
+  }
+
   inputFieldText = (e) => {
-    this.setState( {text: e.target.value })
+    this.setState({ text: e.target.value })
     // console.log(e.target.value);
   }
 
@@ -49,7 +66,7 @@ class todoList extends Component {
         <input ref={this.textInput} value={this.state.text} onChange={this.inputFieldText}></input>
         <ul>
           {this.state.todos.map((todo, index) => 
-            <li key={index}>{todo}</li>
+            <li key={index}>{todo}<button value={index} onClick={() => this.removeTask(index)}>Done!</button></li>
           )}
         </ul>
       </div>
