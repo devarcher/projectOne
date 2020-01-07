@@ -20,14 +20,14 @@ class todoList extends Component {
   }
 
   // Actions taken when Add Todo button is clicked.
-  addTodoButtonHandler = () => {
+  addTodoHandler = () => {
     // Save below 2 lines of code for another project
     // this.setState({ isClicked: !this.state.isClicked })
     // console.log(this.state.isClicked)
     
     // Move submitted text to todos array
     this.state.todos.push(this.state.text);
-    // console.log('addTodoButtonHandler() todo Push: ', this.state.todos);
+    // console.log('addTodoHandler() todo Push: ', this.state.todos);
 
     // Clear input field
     this.setState({ text: ''});
@@ -36,7 +36,7 @@ class todoList extends Component {
     this.componentDidMount();
   }
 
-  removeTask = (index)=> {
+  removeTodoHandler = (index)=> {
     // console.log(index)
     // console.log('todos state before splice***', this.state.todos)
 
@@ -60,11 +60,11 @@ class todoList extends Component {
     return (
       <div>
         <h1>{this.state.text}</h1>
-        <button onClick={this.addTodoButtonHandler}>Add Item</button>
+        <button onClick={this.addTodoHandler}>Add Item</button>
         <input ref={this.textInput} value={this.state.text} onChange={this.inputFieldText}></input>
         <ul>
           {this.state.todos.map((todo, index) => 
-            <li key={index}>{todo}<button onClick={() => this.removeTask(index)}>Done!</button></li>
+            <li key={index}>{todo}<button onClick={() => this.removeTodoHandler(index)}>Done!</button></li>
           )}
         </ul>
       </div>
