@@ -6,7 +6,7 @@
 }
 
 .todoBox {
-  width: 45vw;
+  width: 35vw;
   height: 80vh;
   background: rgb(187, 197, 190);
   border-radius: 10px;
@@ -19,13 +19,18 @@
 .liveTodo {
   font-size: 1.25em;
   min-height: 5vh;
+  background: rgb(214, 219, 206);
+  padding: 5px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  line-height: 1.5em;
 }
 
 .textInput {
   border-radius: 8px;
   border: 1px solid rgb(136, 136, 136);
   height: 2em;
-  width: 75%;
+  width: 65%;
   align-self: end;
   margin-bottom: 5px;
 }
@@ -39,7 +44,7 @@
   border-radius: 8px;
   border: 1px solid rgb(136, 136, 136);
   height: 1.5rem;
-  width: 75%;
+  width: 65%;
   align-self: end;
   margin-bottom: 15px;
   background: rgb(200, 202, 195); 
@@ -57,10 +62,11 @@
   margin-bottom: 5px;
   border-radius: 8px;
   background: rgb(172, 177, 163);
+  line-height: 1.5em;
 }
 
 .listItem:nth-child(even) {
-  background: rgb(173, 189, 150);
+  background: rgb(178, 189, 162);
 }
 
 #deleteButton {
