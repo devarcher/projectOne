@@ -37,7 +37,7 @@ class todoList extends Component {
   }
 
   removeTodoHandler = (index)=> {
-    // Using Splice
+    // Using Splice - Destructive are requires extra code to return updated Todos[].
     // this.setState({
     //   todos: this.state.todos.splice(index, 1)
     // })
@@ -45,7 +45,6 @@ class todoList extends Component {
     // (Otherwise splice returns deleted element in new array that is rendered)
     // this.setState({ todos: this.state.todos })
     // console.log('todos state after splice***', this.state.todos)
-
 
     // Using Filter... I think this one is better. Non-destructive and apparently faster?
     this.setState({
@@ -60,13 +59,13 @@ class todoList extends Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.state.text}</h1>
-        <button onClick={this.addTodoHandler}>Add Item</button>
-        <input ref={this.textInput} value={this.state.text} onChange={this.inputFieldText}></input>
-        <ul>
+      <div className="todoBox">
+        <h1 className="liveTodo">Todo: {this.state.text}</h1>
+        <input className="textInput" ref={this.textInput} value={this.state.text} onChange={this.inputFieldText}></input>
+        <button id="addButton" onClick={this.addTodoHandler}>Add Todo</button>
+        <ul className="unorderedList">
           {this.state.todos.map((todo, index) => 
-            <li key={index}>{todo}<button onClick={() => this.removeTodoHandler(index)}>Done!</button></li>
+            <li className="listItem" key={index}>{todo}<button id="deleteButton" onClick={() => this.removeTodoHandler(index)}>Done!</button></li>
           )}
         </ul>
       </div>
