@@ -23,7 +23,7 @@
   padding: 5px;
   border-radius: 8px;
   margin-bottom: 15px;
-  line-height: 1.5em;
+  line-height: 2em;
 }
 
 .textInput {
@@ -53,15 +53,18 @@
 
 .unorderedList {
   padding: 5px;
+  height: 50vh;
+  overflow-y: auto;
 }
 
 .listItem {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 3px;
+  padding: 5px;
   margin-bottom: 5px;
-  border-radius: 8px;
+  border-radius: 5px;
+  border: .25px solid grey;
   background: rgb(172, 177, 163);
   line-height: 1.5em;
 }
@@ -74,4 +77,8 @@
   grid-column: 2;
   justify-self: center;
   width: 30%;
+}
+
+#searchBox {
+  width: 100%;
 }

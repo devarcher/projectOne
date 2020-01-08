@@ -9,6 +9,7 @@ class todoList extends Component {
 
   // Create State object YAY, my prayers have been answered.
   state = {
+    query: '',
     text: '',
     todos: [],
     isClicked: false,
@@ -57,6 +58,17 @@ class todoList extends Component {
     // console.log(e.target.value);
   }
 
+  searchFieldText = (e) => {
+    this.setState({ query: e.target.value })
+    // console.log(e.target.value)
+    console.log('field***', this.state.query)
+    this.searchHandler()
+  }
+
+  searchHandler = () => {
+    console.log('handler***', this.state.query)
+  }
+
   render() {
     return (
       <div className="todoBox">
@@ -68,6 +80,7 @@ class todoList extends Component {
             <li className="listItem" key={index}>{index + 1}. {todo}<button id="deleteButton" onClick={() => this.removeTodoHandler(index)}>Done!</button></li>
           )}
         </ul>
+        <input id="searchBox" className="textInput" placeholder="Search" value={this.state.query} onChange={this.searchFieldText}></input>
       </div>
     )
   }
