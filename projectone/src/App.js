@@ -27,7 +27,11 @@ class todoList extends Component {
     // console.log(this.state.isClicked)
     
     // Move submitted text to todos array
+    if(this.state.text.length > 0) {
     this.state.todos.push(this.state.text);
+    } else {
+      alert('no empty todos')
+    }
     // console.log('addTodoHandler() todo Push: ', this.state.todos);
 
     // Clear input field
@@ -61,8 +65,6 @@ class todoList extends Component {
   searchFieldText = (e) => {
     this.setState({ query: e.target.value })
     // console.log(e.target.value)
-    console.log('field***', this.state.query)
-    this.searchHandler()
   }
 
   searchHandler = () => {
@@ -70,13 +72,18 @@ class todoList extends Component {
   }
 
   render() {
+    let filteredTodos = this.state.todos.filter(
+      (todo) => {
+        return todo.indexOf(this.state.query) !== -1;
+      }
+    );
     return (
       <div className="todoBox">
         <h1 className="liveTodo">Todo: {this.state.text}</h1>
         <input className="textInput" ref={this.textInput} value={this.state.text} onChange={this.inputFieldText}></input>
         <button id="addButton" onClick={this.addTodoHandler}>Add Todo</button>
         <ul className="unorderedList">
-          {this.state.todos.map((todo, index) => 
+          {filteredTodos.map((todo, index) => 
             <li className="listItem" key={index}>{index + 1}. {todo}<button id="deleteButton" onClick={() => this.removeTodoHandler(index)}>Done!</button></li>
           )}
         </ul>
