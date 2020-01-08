@@ -67,9 +67,9 @@ class todoList extends Component {
     // console.log(e.target.value)
   }
 
-  searchHandler = () => {
-    console.log('handler***', this.state.query)
-  }
+  // searchHandler = () => {
+  //   console.log('handler***', this.state.query)
+  // }
 
   render() {
     let filteredTodos = this.state.todos.filter((todo) => {
