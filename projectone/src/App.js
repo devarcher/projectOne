@@ -30,7 +30,7 @@ class todoList extends Component {
     if(this.state.text.length > 0) {
     this.state.todos.push(this.state.text);
     } else {
-      alert('no empty todos')
+      this.state.todos.push('Free time...I guess.')
     }
     // console.log('addTodoHandler() todo Push: ', this.state.todos);
 
@@ -72,8 +72,7 @@ class todoList extends Component {
   }
 
   render() {
-    let filteredTodos = this.state.todos.filter(
-      (todo) => {
+    let filteredTodos = this.state.todos.filter((todo) => {
         return todo.indexOf(this.state.query) !== -1;
       }
     );
