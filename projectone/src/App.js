@@ -65,7 +65,7 @@ class todoList extends Component {
         <button id="addButton" onClick={this.addTodoHandler}>Add Todo</button>
         <ul className="unorderedList">
           {this.state.todos.map((todo, index) => 
-            <li className="listItem" key={index}>{todo}<button id="deleteButton" onClick={() => this.removeTodoHandler(index)}>Done!</button></li>
+            <li className="listItem" key={index}>{index + 1}. {todo}<button id="deleteButton" onClick={() => this.removeTodoHandler(index)}>Done!</button></li>
           )}
         </ul>
       </div>
